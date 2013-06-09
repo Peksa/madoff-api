@@ -2,9 +2,17 @@ package controllers
 
 import "github.com/robfig/revel"
 import "madoff-api/app/viewmodels"
+import "encoding/json"
 
 type Users struct {
 	*revel.Controller
+}
+
+func (c Users) Add() revel.Result {
+	// TODO: break out this type of code.
+	var user viewmodels.UserViewModel
+	json.NewDecoder(c.Request.Body).Decode(&user)
+    return c.RenderJson(user)
 }
 
 func (c Users) List() revel.Result {
