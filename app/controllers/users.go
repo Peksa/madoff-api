@@ -2,6 +2,7 @@ package controllers
 
 import "github.com/robfig/revel"
 import "madoff-api/app/viewmodels"
+import "madoff-api/app/models"
 import "encoding/json"
 
 type Users struct {
@@ -35,9 +36,12 @@ func (c Users) List() revel.Result {
 }
 
 func (c Users) Show(id int) revel.Result {
-	var user viewmodels.UserViewModel
-	user.Id = id
-	user.Username = "peksa"
-	user.Name = "Niklas"
-	return c.RenderJson(user)
+	// Magic to me.. Import random static method from models/user.go?
+	user := models.Get(id); 
+
+	var view viewmodels.UserViewModel
+	view.Id = id
+	view.Username = user.Username
+	view.Name = user.Name
+	return c.RenderJson(view)
 }
