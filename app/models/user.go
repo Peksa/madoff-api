@@ -10,7 +10,7 @@ type User struct {
 	Err error
 }
 
-func Get(id int) User {
+func Get(id string) User {
 	// Get a user from DB somehow..
 	uuid := uuid.TimeUUID()
 	err := gocql.ErrNotFound
