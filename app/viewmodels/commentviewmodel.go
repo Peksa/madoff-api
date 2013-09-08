@@ -5,5 +5,5 @@ type CommentViewModel struct {
 	Id string                       `json:"id"`
 	Created int64                   `json:"created"`
 	Content string                  `json:"content"`
-	Poster UserViewModel            `json:"poster"`
+    Poster UserViewModel            `json:"poster"`
 }

@@ -30,15 +30,15 @@ func (c Receipts) List() revel.Result {
 	receipt1.Description = &desc1
 	var created1 int64 = 1378641336
 	receipt1.Created = &created1
-	receipt1.Members = []viewmodels.UserViewModel{peksa, gunde}
-	receipt1.Creator = gunde
+	receipt1.Members = &[]viewmodels.UserViewModel{peksa, gunde}
+	//receipt1.Creator = gunde
 	var comment1 viewmodels.CommentViewModel
 	comment1.Id = "1"
 	comment1.Content = "Yoyoyo nice!"
 	comment1.Created = 1378651336
 	comment1.Poster = peksa
-	receipt1.Comments = []viewmodels.CommentViewModel{comment1}
-	receipt1.Items = []viewmodels.ItemViewModel{}
+	receipt1.Comments = &[]viewmodels.CommentViewModel{comment1}
+	receipt1.Items = &[]viewmodels.ItemViewModel{}
 
 	receipt2.Id = "2"
 	receipt2.Title = "Great movie"
@@ -46,8 +46,8 @@ func (c Receipts) List() revel.Result {
 	receipt2.Description = &desc2
 	var created2 int64 = 1378652121
 	receipt2.Created = &created2
-	receipt2.Members = []viewmodels.UserViewModel{dschlyter, gunde}
-	receipt2.Creator = gunde
+	receipt2.Members = &[]viewmodels.UserViewModel{dschlyter, gunde}
+	receipt2.Creator = &gunde
 	var comment2, comment3 viewmodels.CommentViewModel
 	comment2.Id = "2"
 	comment2.Content = "Wat is this?"
@@ -57,7 +57,7 @@ func (c Receipts) List() revel.Result {
 	comment3.Content = "Det är nice!"
 	comment3.Created = 1378652199
 	comment3.Poster = dschlyter
-	receipt2.Comments = []viewmodels.CommentViewModel{comment2, comment3}
+	receipt2.Comments = &[]viewmodels.CommentViewModel{comment2, comment3}
 	var item1, item2, item3 viewmodels.ItemViewModel
 	item1.Id = "1"
 	item1.Name = "3d-glasögon"
@@ -71,7 +71,7 @@ func (c Receipts) List() revel.Result {
 	item3.Name = "Biobiljetter"
 	item3.Amount = 220
 	item3.Members = []viewmodels.UserViewModel{dschlyter, gunde}
-	receipt2.Items = []viewmodels.ItemViewModel{item1, item2, item3}
+	receipt2.Items = &[]viewmodels.ItemViewModel{item1, item2, item3}
 
 	receipt3.Id = "3"
 	receipt3.Title = "Bar"
@@ -79,9 +79,9 @@ func (c Receipts) List() revel.Result {
 	receipt3.Description = &desc3
 	var created3 int64 = 1368651235
 	receipt2.Created = &created3
-	receipt3.Members = []viewmodels.UserViewModel{peksa, dschlyter, gunde}
-	receipt3.Creator = dschlyter
-	receipt3.Comments = []viewmodels.CommentViewModel{}
+	receipt3.Members = &[]viewmodels.UserViewModel{peksa, dschlyter, gunde}
+	receipt3.Creator = &dschlyter
+	receipt3.Comments = &[]viewmodels.CommentViewModel{}
 	var item4, item5 viewmodels.ItemViewModel
 	item4.Id = "4"
 	item4.Name = "3x125kr var"
@@ -91,7 +91,7 @@ func (c Receipts) List() revel.Result {
 	item5.Name = "3x120kr"
 	item5.Amount = 360
 	item5.Members = []viewmodels.UserViewModel{dschlyter}
-	receipt3.Items = []viewmodels.ItemViewModel{item4, item5}
+	receipt3.Items = &[]viewmodels.ItemViewModel{item4, item5}
 
 	receipts := []viewmodels.ReceiptViewModel{receipt1, receipt2, receipt3}
 	return c.RenderJson(receipts)
@@ -108,21 +108,21 @@ func (c Receipts) Show(id string) revel.Result {
 	gunde.Name = "Henrik"
 
 	var receipt1 viewmodels.ReceiptViewModel
-	
+
 	receipt1.Id = "1"
 	receipt1.Title = "Restaurant"
 	desc1 := "A nice restaurant"
 	receipt1.Description = &desc1
 	var created1 int64 = 1378641336
 	receipt1.Created = &created1
-	receipt1.Members = []viewmodels.UserViewModel{peksa, gunde}
-	receipt1.Creator = gunde
+	receipt1.Members = &[]viewmodels.UserViewModel{peksa, gunde}
+	receipt1.Creator = &gunde
 	var comment1 viewmodels.CommentViewModel
 	comment1.Id = "1"
 	comment1.Content = "Yoyoyo nice!"
 	comment1.Created = 1378651336
 	comment1.Poster = peksa
-	receipt1.Comments = []viewmodels.CommentViewModel{comment1}
-	receipt1.Items = []viewmodels.ItemViewModel{}
+	receipt1.Comments = &[]viewmodels.CommentViewModel{comment1}
+	receipt1.Items = &[]viewmodels.ItemViewModel{}
 	return c.RenderJson(receipt1)
 }
